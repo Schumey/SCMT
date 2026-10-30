@@ -15,8 +15,8 @@ Der Titel in großen Buchstaben, darunter der Interpret und unten optional ein F
 - Die Option „Fortschritt“ zeigt einen Balken (seine Höhe ist auch eine Option, 2 bis 16 Pixel), die Zeit (gespielt /
   Länge), beides oder nichts. Dafür muss der Player `media_duration` und `media_position` melden; sonst erscheint
   weder das eine noch das andere.
-- Die Option „Lautstärkeanzeige“ zeigt die Lautstärke rechts neben dem Titel: drei Sekunden nach einer Änderung,
-  immer oder nie. Sie braucht `volume_level`; ein stummer Player zeigt „Stumm“.
+- Die Option „Lautstärkeanzeige“ zeigt die Lautstärke rechts in der Zeile über dem Fortschrittsbalken, neben der
+  Zeit: drei Sekunden nach einer Änderung, immer oder nie. Sie braucht `volume_level`; ein stummer Player zeigt „Stumm“.
 - Ein Tipp auf die Kachel startet oder pausiert die Wiedergabe.
 - Das Albumcover steht neben dem Titel, wenn die Kachel mindestens zwei Zellen breit ist und der Bildschirm Bilder
   zeigen kann (die kleinen Boards können das nicht). Die Option „Albumcover“ setzt es links (Standard) oder rechts vom

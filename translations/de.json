@@ -44,7 +44,7 @@
     "tl_both": "Balken und Zeit",
     "tl_none": "Nichts",
     "opt_voldisp": "Lautstärkeanzeige",
-    "opt_voldisp_hint": "Zeigt die Lautstärke rechts neben dem Titel.",
+    "opt_voldisp_hint": "Zeigt die Lautstärke rechts über dem Fortschrittsbalken.",
     "vd_change": "Bei Änderung",
     "vd_always": "Immer",
     "vd_off": "Nie",

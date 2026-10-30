@@ -44,7 +44,7 @@
     "tl_both": "Barra e tempo",
     "tl_none": "Niente",
     "opt_voldisp": "Indicatore del volume",
-    "opt_voldisp_hint": "Mostra il volume a destra del titolo.",
+    "opt_voldisp_hint": "Mostra il volume a destra, sopra la barra di avanzamento.",
     "vd_change": "Quando cambia",
     "vd_always": "Sempre",
     "vd_off": "Mai",

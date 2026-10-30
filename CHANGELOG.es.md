@@ -1,5 +1,12 @@
 # Registro de cambios
 
+## 0.14.3 - 2026-10-30
+
+- La línea del tempo está debajo del álbum, ya no encima.
+- El pequeño indicador de volumen está a la derecha de la línea sobre la barra de progreso, junto al tiempo, ya no
+  a la derecha del título; el título tiene todo el ancho.
+- El pequeño indicador de volumen y el tiempo tienen un tamaño de letra más.
+
 ## 0.14.2 - 2026-10-30
 
 - Compila con Tessera 0.4.91 y posteriores (API de plugins 0.24), que quitó la forma de clave y valor de

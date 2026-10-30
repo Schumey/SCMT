@@ -44,7 +44,7 @@
     "tl_both": "Barre et temps",
     "tl_none": "Rien",
     "opt_voldisp": "Affichage du volume",
-    "opt_voldisp_hint": "Affiche le volume à droite du titre.",
+    "opt_voldisp_hint": "Affiche le volume à droite, au-dessus de la barre de progression.",
     "vd_change": "Quand il change",
     "vd_always": "Toujours",
     "vd_off": "Jamais",

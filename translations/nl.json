@@ -44,7 +44,7 @@
     "tl_both": "Balk en tijd",
     "tl_none": "Niets",
     "opt_voldisp": "Volumeweergave",
-    "opt_voldisp_hint": "Toont het volume rechts van de titel.",
+    "opt_voldisp_hint": "Toont het volume rechts, boven de voortgangsbalk.",
     "vd_change": "Bij een wijziging",
     "vd_always": "Altijd",
     "vd_off": "Nooit",

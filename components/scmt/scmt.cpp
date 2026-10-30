@@ -179,19 +179,25 @@ class NowPlayingTile : public tessera::Tile {
       area_w_ = width_ - vbar_w_ - gap;
     }
 
-    // From the bottom up: the buttons, the progress bar, the time. What is left above is for the cover and the text.
+    // From the bottom up: the buttons, the progress bar, the line with the time at the left and the small volume
+    // display at the right. What is left above is for the cover and the text.
     int bh = c.options["bar_height"] | 4;  // in pixels of the reference look
     if (bh < 1) bh = 1;
     bar_h_ = ui::px(bh);
-    const int time_h = show_time_ ? ui::line_height(Font::BODY) : 0;
+    const bool time_row = show_time_ || vol_mode_ != 0;
+    time_h_ = 0;
+    if (time_row) {
+      time_h_ = ui::line_height(Font::BODY_LARGE);
+      if (vol_mode_ != 0 && ui::line_height(Font::ICON_SMALL) > time_h_) time_h_ = ui::line_height(Font::ICON_SMALL);
+    }
     int bottom = height_;
     if (ctrl_h_ > 0) bottom = height_ - ctrl_h_ - gap;
     bar_y_ = show_bar_ ? bottom - bar_h_ : bottom;
-    time_y_ = (show_bar_ ? bar_y_ - ui::px(4) : bottom) - time_h;  // the time sits close over its bar
+    time_y_ = (show_bar_ ? bar_y_ - ui::px(4) : bottom) - time_h_;  // the line sits close over its bar
     int above = bottom;
-    if (show_time_) above = time_y_;
+    if (time_row) above = time_y_;
     else if (show_bar_) above = bar_y_;
-    content_h_ = (show_bar_ || show_time_) ? above - gap : bottom;
+    content_h_ = (show_bar_ || time_row) ? above - gap : bottom;
     if (content_h_ < 1) content_h_ = 1;
 
     // The cover, a square at the left or the right (option), when the tile is two cells wide or more and the screen
@@ -208,7 +214,6 @@ class NowPlayingTile : public tessera::Tile {
       lv_obj_add_flag(cover_, LV_OBJ_FLAG_HIDDEN);
     }
     text_w_ = area_w_;
-    text_right_ = area_x_ + area_w_;
 
     // Title, artist and album end in dots when they are wider than their room, as every label of the screen.
     title_lbl_ = ui::label(c.parent, Font::HEADLINE, theme::INK);
@@ -232,12 +237,12 @@ class NowPlayingTile : public tessera::Tile {
     ui::set_fill(fill_, bar_tone_, bar_role_);
 
     if (show_time_) {
-      time_lbl_ = ui::label(c.parent, Font::BODY, theme::INK_SOFT);
+      time_lbl_ = ui::label(c.parent, Font::BODY_LARGE, theme::INK_SOFT);
       lv_obj_set_width(time_lbl_, area_w_);
-      lv_obj_set_pos(time_lbl_, area_x_, time_y_);
+      lv_obj_set_pos(time_lbl_, area_x_, time_y_ + (time_h_ - ui::line_height(Font::BODY_LARGE)) / 2);
     }
     if (vol_mode_ != 0) {
-      vol_lbl_ = ui::label(c.parent, Font::BODY, theme::MUTED);
+      vol_lbl_ = ui::label(c.parent, Font::BODY_LARGE, theme::MUTED);
       vol_icon_lbl_ = ui::label(c.parent, Font::ICON_SMALL, theme::MUTED);
     }
 
@@ -387,12 +392,11 @@ class NowPlayingTile : public tessera::Tile {
     const int cover_w = cover_on_ ? cover_size_ + gap_ : 0;
     x0_ = area_x_ + (cover_right_ ? 0 : cover_w);
     text_w_ = area_w_ - cover_w;
-    text_right_ = x0_ + text_w_;  // where the text area ends: the volume display sits at its right edge
     lv_obj_set_width(artist_lbl_, text_w_);
     if (album_lbl_ != nullptr) lv_obj_set_width(album_lbl_, text_w_);
 
-    // The tempo, as a line under the artist (option). After a new track it waits until the sensor was empty once and
-    // has a value again, or at most 12 seconds.
+    // The tempo, as a line under the artist and the album (option). After a new track it waits until the sensor was
+    // empty once and has a value again, or at most 12 seconds.
     std::string bpm_text;
     if (bpm_lbl_ != nullptr) {
       const int bpm = plugin_->bpm();
@@ -434,11 +438,11 @@ class NowPlayingTile : public tessera::Tile {
     const std::string vic = volume_icon_(muted_);
     int vol_tw = 0, vol_iw = 0, vol_total = 0;
     if (!vtext.empty()) {
-      vol_tw = ui::text_width(vtext, Font::BODY) + ui::px(4);
+      vol_tw = ui::text_width(vtext, Font::BODY_LARGE) + ui::px(4);
       if (vol_icon_lbl_ != nullptr) vol_iw = ui::text_width(vic, Font::ICON_SMALL) + ui::px(2);
       vol_total = vol_tw + (vol_iw > 0 ? ui::px(4) + vol_iw : 0);
     }
-    const int title_w = text_w_ - (vol_total > 0 ? vol_total + ui::px(6) : 0);
+    const int title_w = text_w_;
     lv_obj_set_width(title_lbl_, title_w);
 
     // The fonts of the text size (option). VALUE is the largest font with letters (DIGITS has digits only), so "large"
@@ -475,46 +479,49 @@ class NowPlayingTile : public tessera::Tile {
     ui::set_text(title_lbl_, title);
     ui::set_color(title_lbl_, paused_ ? theme::MUTED : theme::INK);
 
-    // Title, artist and, when they fit, the tempo and the album, together at the top, in the middle or at the bottom of
+    // Title, artist and, when they fit, the album and the tempo, together at the top, in the middle or at the bottom of
     // the space beside the cover (option). With a cover that space is the cover's height, so "top" and "bottom" line up
     // with its upper and lower edge. When even the smallest title leaves no room for the artist, the title stands alone.
     const int th = ui::line_height(f);
     const bool with_artist = th + g2 + ah <= space_h;
     ui::set_text(artist_lbl_, with_artist ? artist : std::string());
     int block_h = with_artist ? th + g2 + ah : th;
-    const bool with_bpm = with_artist && !bpm_text.empty() && block_h + g2 + ah <= space_h;
-    if (with_bpm) block_h += g2 + ah;
     const bool with_album = with_artist && album_lbl_ != nullptr && !album.empty() && block_h + g2 + ah <= space_h;
     if (with_album) block_h += g2 + ah;
+    const bool with_bpm = with_artist && !bpm_text.empty() && block_h + g2 + ah <= space_h;
+    if (with_bpm) block_h += g2 + ah;
     int y = text_pos_ == 1 ? 0 : (text_pos_ == 2 ? space_h - block_h : (space_h - block_h) / 2);
     if (y < 0) y = 0;
     place_(title_lbl_, x0_, y, title_w);
     int line_y = y + th + g2;
     place_(artist_lbl_, x0_, line_y, text_w_);
     line_y += ah + g2;
-    if (bpm_lbl_ != nullptr) {
-      ui::set_text(bpm_lbl_, with_bpm ? bpm_text : std::string());
-      place_(bpm_lbl_, x0_, line_y, text_w_);
-      if (with_bpm) line_y += ah + g2;
-    }
     if (album_lbl_ != nullptr) {
       ui::set_text(album_lbl_, with_album ? album : std::string());
       place_(album_lbl_, x0_, line_y, text_w_);
+      if (with_album) line_y += ah + g2;
+    }
+    if (bpm_lbl_ != nullptr) {
+      ui::set_text(bpm_lbl_, with_bpm ? bpm_text : std::string());
+      place_(bpm_lbl_, x0_, line_y, text_w_);
     }
 
-    // The small volume display: a text and the speaker, at the title's right. A tap on it mutes (option).
+    // The small volume display: a text and the speaker, at the right end of the line over the progress bar, beside the
+    // time. A tap on it mutes (option).
+    const int vol_right = area_x_ + area_w_;
     if (vol_lbl_ != nullptr) {
       ui::set_text(vol_lbl_, vtext);
       lv_obj_set_width(vol_lbl_, vol_tw);
-      lv_obj_set_pos(vol_lbl_, text_right_ - vol_total, y + (th - ui::line_height(Font::BODY)) / 2);
+      lv_obj_set_pos(vol_lbl_, vol_right - vol_total, time_y_ + (time_h_ - ui::line_height(Font::BODY_LARGE)) / 2);
       ui::set_text(vol_icon_lbl_, vol_iw > 0 ? vic : std::string());
       lv_obj_set_width(vol_icon_lbl_, vol_iw);
-      lv_obj_set_pos(vol_icon_lbl_, text_right_ - vol_iw, y + (th - ui::line_height(Font::ICON_SMALL)) / 2);
+      lv_obj_set_pos(vol_icon_lbl_, vol_right - vol_iw, time_y_ + (time_h_ - ui::line_height(Font::ICON_SMALL)) / 2);
     }
-    vol_hit_x_ = text_right_ - vol_total;
+    if (time_lbl_ != nullptr) lv_obj_set_width(time_lbl_, area_w_ - (vol_total > 0 ? vol_total + ui::px(6) : 0));
+    vol_hit_x_ = vol_right - vol_total;
     vol_hit_w_ = vol_total;
-    vol_hit_y_ = y;
-    vol_hit_h_ = th;
+    vol_hit_y_ = time_y_;
+    vol_hit_h_ = time_h_;
 
     // The position: that of the last update plus the time that has passed since while it plays. Some players (HASS.Agent
     // with Spotify) report a position a few seconds old as if it were new, so the bar would jump back and forth. While
@@ -693,9 +700,9 @@ class NowPlayingTile : public tessera::Tile {
       }
       return;
     }
-    // 4. The small volume display: a tap mutes (option).
-    if (known && want_mute_ && vol_hit_w_ > 0 && x >= vol_hit_x_ - ui::mm(2) && y >= vol_hit_y_ - ui::mm(1) &&
-        y <= vol_hit_y_ + vol_hit_h_ + ui::mm(2)) {
+    // 4. The small volume display: a tap mutes (option). It reaches up, not down, as the progress bar lies below it.
+    if (known && want_mute_ && vol_hit_w_ > 0 && x >= vol_hit_x_ - ui::mm(2) && y >= vol_hit_y_ - ui::mm(2) &&
+        y <= vol_hit_y_ + vol_hit_h_) {
       mute_();
       return;
     }
@@ -771,7 +778,7 @@ class NowPlayingTile : public tessera::Tile {
   lv_obj_t *pz_bar_[2]{nullptr, nullptr};
   Btn kinds_[6]{};
   int n_{0};
-  int width_{0}, height_{0}, text_w_{0}, x0_{0}, text_right_{0};
+  int width_{0}, height_{0}, text_w_{0}, x0_{0};
   bool cover_right_{false};
   int text_pos_{0};  // 0 middle, 1 top, 2 bottom
   int cover_size_{0};
@@ -779,7 +786,7 @@ class NowPlayingTile : public tessera::Tile {
   tessera::Text cover_url_, cover_track_;
   uint32_t cover_key_{0}, cover_gen_{0}, cover_retry_at_{0};
   bool cover_retry_{false};
-  int bar_h_{0}, bar_y_{0}, time_y_{0}, ctrl_h_{0}, content_h_{0};
+  int bar_h_{0}, bar_y_{0}, time_y_{0}, time_h_{0}, ctrl_h_{0}, content_h_{0};
   int gap_{0};                                   // the space between the parts, the card's own padding
   int area_x_{0}, area_w_{0};                    // the area beside the volume bar, for everything else
   int vbar_x_{0}, vbar_w_{0}, vbar_fy_{0}, vbar_fh_{1};  // the volume bar, and where its fill may reach

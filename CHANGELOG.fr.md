@@ -1,5 +1,12 @@
 # Journal des modifications
 
+## 0.14.3 - 2026-10-30
+
+- La ligne du tempo est sous l'album, et non plus au-dessus.
+- Le petit affichage du volume est à droite de la ligne au-dessus de la barre de progression, à côté du temps, et
+  non plus à droite du titre ; le titre a toute la largeur.
+- Le petit affichage du volume et le temps ont une taille de police de plus.
+
 ## 0.14.2 - 2026-10-30
 
 - Se compile avec Tessera 0.4.91 et plus récent (API de plugin 0.24), qui a retiré la forme clé et valeur de

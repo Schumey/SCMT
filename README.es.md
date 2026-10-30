@@ -15,8 +15,8 @@ El título en letras grandes, debajo el artista y, abajo, una barra de progreso 
 - La opción «Progreso» muestra una barra (su altura también es una opción, de 2 a 16 píxeles), el tiempo (reproducido /
   duración), ambos o nada. El reproductor debe informar de `media_duration` y `media_position`; si no, no se muestra
   ninguno.
-- La opción «Indicador de volumen» muestra el volumen a la derecha del título: durante tres segundos tras un cambio,
-  siempre o nunca. Necesita `volume_level`; un reproductor silenciado muestra «Silenciado».
+- La opción «Indicador de volumen» muestra el volumen a la derecha de la línea sobre la barra de progreso, junto al
+  tiempo: durante tres segundos tras un cambio, siempre o nunca. Necesita `volume_level`; un reproductor silenciado muestra «Silenciado».
 - Un toque en la tarjeta reproduce o pausa.
 - La carátula del álbum aparece junto al título cuando la tarjeta tiene al menos dos celdas de ancho y la pantalla puede
   mostrar imágenes (las placas pequeñas no pueden). La opción «Carátula del álbum» la pone a la izquierda (por defecto)

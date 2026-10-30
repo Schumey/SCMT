@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.14.3 - 2026-10-30
+
+- The tempo line stands under the album, no longer above it.
+- The small volume display sits at the right end of the line over the progress bar, beside the time, no longer at
+  the title's right; the title gets the whole width.
+- The small volume display and the time are one font size larger.
+
 ## 0.14.2 - 2026-10-30
 
 - Builds on Tessera 0.4.91 and later (plugin API 0.24), which took away the key and value form of `tessera::action`:

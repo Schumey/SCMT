@@ -1,5 +1,12 @@
 # Registro delle modifiche
 
+## 0.14.3 - 2026-10-30
+
+- La riga del tempo sta sotto l'album, non più sopra.
+- Il piccolo indicatore del volume sta a destra della riga sopra la barra di avanzamento, accanto al tempo, non più
+  a destra del titolo; il titolo ha tutta la larghezza.
+- Il piccolo indicatore del volume e il tempo hanno una dimensione di carattere in più.
+
 ## 0.14.2 - 2026-10-30
 
 - Si compila con Tessera 0.4.91 e successive (API dei plugin 0.24), che ha tolto la forma con chiave e valore di

@@ -14,8 +14,8 @@ The title in large letters, the artist below it, and an optional progress bar at
   So do an artist and an album that are too wide.
 - The option "Progress" shows a bar (its height is an option too, 2 to 16 pixels), the time (played / length), both, or
   nothing. It needs the player to report `media_duration` and `media_position`; a player that does not shows neither.
-- The option "Volume display" shows the volume at the title's right: for three seconds after it changed, always, or
-  never. It needs `volume_level`; a muted player shows "Muted".
+- The option "Volume display" shows the volume at the right end of the line over the progress bar, beside the time:
+  for three seconds after it changed, always, or never. It needs `volume_level`; a muted player shows "Muted".
 - A tap on the tile plays or pauses.
 - The album cover stands beside the title, when the tile is at least two cells wide and the screen can show pictures
   (the small boards cannot). The option "Album cover" puts it at the left (default) or at the right of the text, or

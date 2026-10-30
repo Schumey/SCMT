@@ -14,8 +14,8 @@ Le titre en grandes lettres, l'artiste dessous, et en bas une barre de progressi
   suspension, comme chaque texte de l'écran. De même pour un artiste et un album trop larges.
 - L'option « Progression » affiche une barre (sa hauteur est aussi une option, de 2 à 16 pixels), le temps (écoulé /
   durée), les deux, ou rien. Le lecteur doit indiquer `media_duration` et `media_position` ; sinon rien ne s'affiche.
-- L'option « Affichage du volume » montre le volume à droite du titre : pendant trois secondes après un changement,
-  toujours, ou jamais. Elle demande `volume_level` ; un lecteur en sourdine affiche « Muet ».
+- L'option « Affichage du volume » montre le volume à droite de la ligne au-dessus de la barre de progression, à côté
+  du temps : pendant trois secondes après un changement, toujours, ou jamais. Elle demande `volume_level` ; un lecteur en sourdine affiche « Muet ».
 - Un appui sur la tuile lance ou met en pause la lecture.
 - La pochette de l'album se place à côté du titre quand la tuile fait au moins deux cellules de large et que l'écran
   peut afficher des images (les petites cartes ne le peuvent pas). L'option « Pochette de l'album » la place à gauche

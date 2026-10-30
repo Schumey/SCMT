@@ -1,5 +1,12 @@
 # Wijzigingenlogboek
 
+## 0.14.3 - 2026-10-30
+
+- De tempo-regel staat onder het album, niet meer erboven.
+- De kleine volumeweergave staat rechts op de regel boven de voortgangsbalk, naast de tijd, niet meer rechts van
+  de titel; de titel krijgt de hele breedte.
+- De kleine volumeweergave en de tijd zijn één lettergrootte groter.
+
 ## 0.14.2 - 2026-10-30
 
 - Bouwt op Tessera 0.4.91 en nieuwer (plugin-API 0.24), waarin de vorm van `tessera::action` met sleutel en waarde

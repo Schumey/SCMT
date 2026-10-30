@@ -14,8 +14,8 @@ De titel in grote letters, daaronder de artiest en onderaan een optionele voortg
   elke tekst van het scherm. Net zo een artiest en een album die te breed zijn.
 - De optie „Voortgang” toont een balk (de hoogte is ook een optie, 2 tot 16 pixels), de tijd (gespeeld / duur), beide of
   niets. De speler moet `media_duration` en `media_position` doorgeven; anders verschijnt geen van beide.
-- De optie „Volumeweergave” toont het volume rechts van de titel: drie seconden na een wijziging, altijd of nooit. Ze
-  heeft `volume_level` nodig; een gedempte speler toont „Gedempt”.
+- De optie „Volumeweergave” toont het volume rechts op de regel boven de voortgangsbalk, naast de tijd: drie seconden
+  na een wijziging, altijd of nooit. Ze heeft `volume_level` nodig; een gedempte speler toont „Gedempt”.
 - Een tik op de tegel start of pauzeert het afspelen.
 - De albumhoes staat naast de titel als de tegel minstens twee cellen breed is en het scherm afbeeldingen kan tonen (de
   kleine borden kunnen dat niet). De optie „Albumhoes” zet hem links (standaard) of rechts van de tekst, of zet hem uit.

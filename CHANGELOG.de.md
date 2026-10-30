@@ -1,5 +1,12 @@
 # Änderungsprotokoll
 
+## 0.14.3 - 2026-10-30
+
+- Die Tempo-Zeile steht unter dem Album, nicht mehr darüber.
+- Die kleine Lautstärkeanzeige sitzt rechts in der Zeile über dem Fortschrittsbalken, neben der Zeit, nicht mehr
+  rechts neben dem Titel; der Titel bekommt die ganze Breite.
+- Die kleine Lautstärkeanzeige und die Zeit sind eine Schriftgröße größer.
+
 ## 0.14.2 - 2026-10-30
 
 - Baut auf Tessera 0.4.91 und neuer (Plugin-API 0.24), wo die Form von `tessera::action` mit Schlüssel und Wert

@@ -15,8 +15,8 @@ Il titolo in caratteri grandi, sotto l'artista e in basso una barra di avanzamen
 - L'opzione «Avanzamento» mostra una barra (anche la sua altezza è un'opzione, da 2 a 16 pixel), il tempo (trascorso /
   durata), entrambi o niente. Il lettore deve indicare `media_duration` e `media_position`; altrimenti non compare né
   l'una né l'altro.
-- L'opzione «Indicatore del volume» mostra il volume a destra del titolo: per tre secondi dopo una modifica, sempre o
-  mai. Serve `volume_level`; un lettore in muto mostra «Muto».
+- L'opzione «Indicatore del volume» mostra il volume a destra della riga sopra la barra di avanzamento, accanto al
+  tempo: per tre secondi dopo una modifica, sempre o mai. Serve `volume_level`; un lettore in muto mostra «Muto».
 - Un tocco sulla tessera avvia o mette in pausa la riproduzione.
 - La copertina dell'album sta accanto al titolo quando la tessera è larga almeno due celle e lo schermo può mostrare
   immagini (le schede piccole non possono). L'opzione «Copertina dell'album» la mette a sinistra (predefinito) o a

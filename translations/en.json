@@ -44,7 +44,7 @@
     "tl_both": "Bar and time",
     "tl_none": "Nothing",
     "opt_voldisp": "Volume display",
-    "opt_voldisp_hint": "Shows the volume at the title's right.",
+    "opt_voldisp_hint": "Shows the volume at the right, over the progress bar.",
     "vd_change": "When it changes",
     "vd_always": "Always",
     "vd_off": "Never",
