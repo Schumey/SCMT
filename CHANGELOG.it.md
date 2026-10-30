@@ -1,5 +1,13 @@
 # Registro delle modifiche
 
+## 0.14.2 - 2026-10-30
+
+- Si compila con Tessera 0.4.91 e successive (API dei plugin 0.24), che ha tolto la forma con chiave e valore di
+  `tessera::action`: volume, avanzamento e muto inviano i loro campi come oggetto JSON, come numero e come true o
+  false. Il manifesto indica l'API dei plugin 0.12, che ha portato questi campi.
+- La configurazione nel README ha un quarto passo: lo schermo deve poter eseguire azioni di Home Assistant,
+  altrimenti i tasti non fanno nulla.
+
 ## 0.14.1 - 2026-10-28
 
 - L'indicazione di pausa copre ora tutta la tessera, anche le estremità della barra di avanzamento negli angoli.

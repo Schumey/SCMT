@@ -55,6 +55,10 @@ tegel en plaats zoveel van deze tegels als je wilt, naast de tegel „SCMT”.
 2. Plaats de tegels in de indeling.
 3. Kies in de inspecteur van elke tegel de speler. Elke `media_player`-entiteit werkt, bijvoorbeeld die welke
    HASS.Agent maakt van de Windows-mediasessie, of de Spotify-integratie.
+4. Zorg dat het scherm Home Assistant-acties mag uitvoeren. Tessera zet dit aan voor een scherm dat het zelf aan
+   Home Assistant heeft toegevoegd; vink bij een met de hand toegevoegd scherm **Allow the device to perform Home Assistant actions**
+   (in het Nederlands ongeveer „Het apparaat toestaan Home Assistant-acties uit te voeren”) aan in de opties van de
+   ESPHome-integratie voor dat apparaat.
 
 Geprobeerd op een Guition ESP32-S3 met een scherm van 4 inch (480 × 480). Andere borden zijn nog niet getest; laat
 in een issue weten hoe het op het jouwe werkt.

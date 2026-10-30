@@ -1,5 +1,13 @@
 # Wijzigingenlogboek
 
+## 0.14.2 - 2026-10-30
+
+- Bouwt op Tessera 0.4.91 en nieuwer (plugin-API 0.24), waarin de vorm van `tessera::action` met sleutel en waarde
+  is weggevallen: volume, spoelen en dempen sturen hun velden als JSON-object, als getal en als true of false. Het
+  manifest noemt plugin-API 0.12, die deze velden bracht.
+- Instellen in de README heeft een vierde stap: het scherm moet Home Assistant-acties mogen uitvoeren, anders doen
+  de knoppen niets.
+
 ## 0.14.1 - 2026-10-28
 
 - De pauzeweergave bedekt nu de hele tegel, ook de uiteinden van de voortgangsbalk in de hoeken.

@@ -57,6 +57,10 @@ opciones de la tarjeta y coloca tantas de estas tarjetas como quieras, junto a l
 2. Coloca las tarjetas en el diseño.
 3. En el inspector de cada tarjeta, elige el reproductor. Sirve cualquier entidad `media_player`, por ejemplo la que
    HASS.Agent crea a partir de la sesión multimedia de Windows, o la integración de Spotify.
+4. Asegúrate de que la pantalla pueda ejecutar acciones de Home Assistant. Tessera lo activa para una pantalla que
+   añadió él mismo a Home Assistant; para una pantalla añadida a mano, marca **Allow the device to perform Home Assistant actions**
+   (en español, más o menos «Permitir que el dispositivo realice acciones de Home Assistant») en las opciones de la
+   integración ESPHome para ese dispositivo.
 
 Probado en una Guition ESP32-S3 con pantalla de 4 pulgadas (480 × 480). Otras placas aún no se han probado; cuéntame
 en una incidencia cómo funciona en la tuya.

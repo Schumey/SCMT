@@ -1,5 +1,13 @@
 # Journal des modifications
 
+## 0.14.2 - 2026-10-30
+
+- Se compile avec Tessera 0.4.91 et plus récent (API de plugin 0.24), qui a retiré la forme clé et valeur de
+  `tessera::action` : le volume, l'avance et la sourdine envoient leurs champs comme objet JSON, en nombre et en
+  true ou false. Le manifeste indique l'API de plugin 0.12, qui a apporté ces champs.
+- La mise en place du README a une quatrième étape : l'écran doit avoir le droit d'exécuter des actions Home
+  Assistant, sinon les boutons ne font rien.
+
 ## 0.14.1 - 2026-10-28
 
 - L'affichage de pause couvre maintenant toute la tuile, y compris les extrémités de la barre de progression dans

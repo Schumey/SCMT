@@ -1,5 +1,13 @@
 # Änderungsprotokoll
 
+## 0.14.2 - 2026-10-30
+
+- Baut auf Tessera 0.4.91 und neuer (Plugin-API 0.24), wo die Form von `tessera::action` mit Schlüssel und Wert
+  weggefallen ist: Lautstärke, Spulen und Stumm schicken ihre Felder als JSON-Objekt, als Zahl und als true oder
+  false. Das Manifest nennt die Plugin-API 0.12, die diese Felder gebracht hat.
+- Die Einrichtung im README hat einen vierten Schritt: Der Bildschirm muss Home-Assistant-Aktionen ausführen
+  dürfen, sonst tun die Tasten nichts.
+
 ## 0.14.1 - 2026-10-28
 
 - Die Pausenanzeige deckt jetzt die ganze Kachel ab, auch die Enden des Fortschrittsbalkens in den Ecken.

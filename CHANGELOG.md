@@ -5,6 +5,8 @@
 - Builds on Tessera 0.4.91 and later (plugin API 0.24), which took away the key and value form of `tessera::action`:
   the volume, the seek and the mute send their fields as a JSON object, a number and a true or false. The manifest names
   plugin API 0.12, which brought those fields.
+- Setup in the README has a fourth step: the screen must be allowed to perform Home Assistant actions, or the
+  buttons do nothing.
 
 ## 0.14.1 - 2026-10-28
 

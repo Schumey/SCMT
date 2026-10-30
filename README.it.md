@@ -57,6 +57,10 @@ opzioni della tessera e metti tutte le tessere che vuoi, accanto alla tessera «
 2. Posiziona le tessere nel layout.
 3. Nell'ispettore di ogni tessera scegli il lettore. Va bene qualsiasi entità `media_player`, per esempio quella che
    HASS.Agent crea dalla sessione multimediale di Windows, o l'integrazione Spotify.
+4. Assicurati che lo schermo possa eseguire azioni di Home Assistant. Tessera lo attiva per uno schermo che ha
+   aggiunto lui stesso a Home Assistant; per uno schermo aggiunto a mano, spunta **Allow the device to perform Home Assistant actions**
+   (in italiano, più o meno «Consenti al dispositivo di eseguire azioni di Home Assistant») nelle opzioni
+   dell'integrazione ESPHome per quel dispositivo.
 
 Provato su una Guition ESP32-S3 con schermo da 4 pollici (480 × 480). Altre schede non sono ancora state provate;
 scrivimi in una issue come funziona sulla tua.

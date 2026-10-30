@@ -58,6 +58,10 @@ Optionen der Kachel, und du kannst beliebig viele dieser Kacheln neben der Kache
 2. Die Kacheln im Layout platzieren.
 3. Im Inspektor jeder Kachel den Media Player wählen. Jede `media_player`-Entity funktioniert, zum Beispiel die, die
    HASS.Agent aus der Windows-Mediensitzung macht, oder die Spotify-Integration.
+4. Sicherstellen, dass der Bildschirm Home-Assistant-Aktionen ausführen darf. Tessera schaltet das für einen
+   Bildschirm ein, den es selbst zu Home Assistant hinzugefügt hat; bei einem von Hand hinzugefügten Bildschirm in den
+   Optionen der ESPHome-Integration für dieses Gerät **Allow the device to perform Home Assistant actions** (auf Deutsch
+   sinngemäß „Dem Gerät erlauben, Home-Assistant-Aktionen auszuführen“) anhaken.
 
 Ausprobiert auf einem Guition ESP32-S3 mit 4-Zoll-Bildschirm (480 × 480). Andere Boards sind bisher nicht getestet;
 schreib in einem Issue, wie es auf deinem läuft.

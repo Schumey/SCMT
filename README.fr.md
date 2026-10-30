@@ -56,6 +56,10 @@ les options de la tuile et placez autant de ces tuiles que vous voulez, à côt�
 2. Placez les tuiles dans la mise en page.
 3. Dans l'inspecteur de chaque tuile, choisissez le lecteur. Toute entité `media_player` convient, par exemple celle que
    HASS.Agent crée à partir de la session multimédia de Windows, ou l'intégration Spotify.
+4. Vérifiez que l'écran a le droit d'exécuter des actions Home Assistant. Tessera l'active pour un écran qu'il a
+   ajouté lui-même à Home Assistant ; pour un écran ajouté à la main, cochez **Allow the device to perform Home Assistant actions**
+   (en français, à peu près « Autoriser l'appareil à effectuer des actions Home Assistant ») dans les options de
+   l'intégration ESPHome pour cet appareil.
 
 Essayé sur un Guition ESP32-S3 avec un écran de 4 pouces (480 × 480). Les autres cartes ne sont pas encore testées ;
 dites-moi dans un ticket comment il fonctionne sur la vôtre.

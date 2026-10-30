@@ -55,6 +55,9 @@ options and place as many of these tiles as you like, next to the "SCMT" tile.
 2. Place the tiles in the layout.
 3. In each tile's inspector, choose the media player. Any `media_player` entity works, for example the one that
    HASS.Agent makes from the Windows media session, or the Spotify integration.
+4. Make sure the screen may perform Home Assistant actions. Tessera turns this on for a screen it added to Home
+   Assistant; for a screen added by hand, tick **Allow the device to perform Home Assistant actions** in the ESPHome
+   integration's options for that device.
 
 Tried on a Guition ESP32-S3 with a 4-inch screen (480 × 480). Other boards are untested so far; tell me in an
 issue how it works on yours.

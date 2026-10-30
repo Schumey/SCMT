@@ -1,5 +1,13 @@
 # Registro de cambios
 
+## 0.14.2 - 2026-10-30
+
+- Compila con Tessera 0.4.91 y posteriores (API de plugins 0.24), que quitó la forma de clave y valor de
+  `tessera::action`: el volumen, el avance y el silencio envían sus campos como objeto JSON, como número y como true
+  o false. El manifiesto indica la API de plugins 0.12, que trajo esos campos.
+- La puesta en marcha del README tiene un cuarto paso: la pantalla debe poder ejecutar acciones de Home Assistant;
+  si no, los botones no hacen nada.
+
 ## 0.14.1 - 2026-10-28
 
 - La indicación de pausa cubre ahora toda la tarjeta, también los extremos de la barra de progreso en las esquinas.
