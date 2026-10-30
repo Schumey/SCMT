@@ -1,5 +1,11 @@
 # Journal des modifications
 
+## 1.0.0 - 2026-10-30
+
+- Première version stable : le plugin n'est plus marqué comme bêta (`stage: stable`).
+- Les images du banc d'essai (`preview.yaml`) indiquent le fichier de pochette pour `/local/cover.jpg` ;
+  `store.png` montre la mise en page de 0.14.3.
+
 ## 0.14.3 - 2026-10-30
 
 - La ligne du tempo est sous l'album, et non plus au-dessus.

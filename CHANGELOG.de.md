@@ -1,5 +1,11 @@
 # Änderungsprotokoll
 
+## 1.0.0 - 2026-10-30
+
+- Erste stabile Version: Das Plugin ist nicht mehr als Beta gekennzeichnet (`stage: stable`).
+- Die Bilder des Prüfstands (`preview.yaml`) nennen die Cover-Datei für `/local/cover.jpg`; `store.png` zeigt das
+  Layout von 0.14.3.
+
 ## 0.14.3 - 2026-10-30
 
 - Die Tempo-Zeile steht unter dem Album, nicht mehr darüber.

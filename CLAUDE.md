@@ -66,12 +66,17 @@ Weitere Fakten aus dem Tessera-Code, falls das Thema wiederkommt:
   nächsten Release. Das Issue muss nicht mehr eingereicht werden. Bis zum Release: nach jedem SCMT-Update prüfen, ob
   SCMT in `dsp-desktop.plugins.yaml` steht, sonst einmal neu bauen.
 - PR MaxGramser/tessera-plugins#12 (SCMT in `community/`): Die fünf Review-Punkte sind seit 0.14.0 erledigt. Am
-  2026-10-30 hat Max zwei neue Bedingungen gestellt, beide in 0.14.2 (lokal vorbereitet, noch nicht auf dem Display
-  getestet): (1) Plugin-API 0.24 (Tessera 0.4.91) kennt `tessera::action` nur noch mit Feldern als `JsonDocument`;
-  Max' Fix ist Schumey/SCMT#1, per Fast-Forward in `main` übernommen. (2) README-Schritt 4 unter „Setup“: Der
-  Bildschirm muss Home-Assistant-Aktionen ausführen dürfen. Nach dem Release 0.14.2 merged Max. Noch offen: ob
+  2026-10-30 hat Max zwei neue Bedingungen gestellt, beide erfüllt in 0.14.2 (am Display getestet): (1) Plugin-API
+  0.24 (Tessera 0.4.91) kennt `tessera::action` nur noch mit Feldern als `JsonDocument`; Max' Fix ist Schumey/SCMT#1,
+  per Fast-Forward in `main` übernommen. (2) README-Schritt 4 unter „Setup“: Der Bildschirm muss Home-Assistant-Aktionen
+  ausführen dürfen. Danach 0.14.3 (Layout) und 1.0.0 (`stage: stable`, kein Beta-Badge mehr). Noch offen: ob
   volume-low/-medium ins Icon-Set kommen. Optional laut Max: `tessera::wish(entity, Wish::PLAYING / Wish::MUTED, …)`
   (API 0.14) für sofortige Anzeige bei Play/Pause und Stumm.
+- Prüfstand (`tools/preview.py` aus tessera-plugins, in WSL/Ubuntu): unter Windows direkt in Ubuntu starten
+  (`wsl -d Ubuntu --cd <tessera-plugins> -- python3 tools/preview.py ../SCMT --strict`), weil das Windows-Handoff die
+  Backslashes im Pfad verliert. Cover bleiben im Prüfstand grau: `bench.py` beantwortet die Bildanfragen der
+  Plugin-Kacheln nicht (prüft nur das alte Feld `tiles`, die Firmware fragt neu mit `q`/`n`). Beides für Max in
+  tessera-plugins#12 vorformuliert (Stand 2026-10-30). Die CYD-Warnung „Text large 2x1 … outside its area“ gibt es schon seit 0.14.2.
 - `cover:<entity>` (Plugin-API 0.17, Tessera dev, geprüft 2026-10-23) könnte `image.scmt_cover` ersetzen: Die App holt
   das Cover über `/api/media_player_proxy/<entity>` mit ihrem Token, wie die eigene Player-Kachel. Aber: Die Firmware
   bildet den Bild-Key einer Plugin-Kachel nur aus Platz und Adresse (`tile_picture::set_parts`), und `cover:` nimmt

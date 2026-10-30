@@ -1,11 +1,11 @@
 # Manifest for SCMT (Simple Customizable Media Tile): an info tile and a button tile for a media_player entity.
 id: scmt
-version: 0.14.3
+version: 1.0.0
 api: "0.12"
 icon: music
 maintainer: Schumey
 license: MIT
-stage: beta
+stage: stable
 topics: [media]
 requires:
   esphome: 2026.6.2

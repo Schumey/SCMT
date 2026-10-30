@@ -1,5 +1,11 @@
 # Registro delle modifiche
 
+## 1.0.0 - 2026-10-30
+
+- Prima versione stabile: il plugin non è più contrassegnato come beta (`stage: stable`).
+- Le immagini del banco di prova (`preview.yaml`) indicano il file della copertina per `/local/cover.jpg`;
+  `store.png` mostra il layout della 0.14.3.
+
 ## 0.14.3 - 2026-10-30
 
 - La riga del tempo sta sotto l'album, non più sopra.

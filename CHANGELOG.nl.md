@@ -1,5 +1,11 @@
 # Wijzigingenlogboek
 
+## 1.0.0 - 2026-10-30
+
+- Eerste stabiele versie: de plugin is niet langer als bèta gemarkeerd (`stage: stable`).
+- De afbeeldingen van de testbank (`preview.yaml`) noemen het hoesbestand voor `/local/cover.jpg`; `store.png`
+  toont de indeling van 0.14.3.
+
 ## 0.14.3 - 2026-10-30
 
 - De tempo-regel staat onder het album, niet meer erboven.

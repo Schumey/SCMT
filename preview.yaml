@@ -219,6 +219,10 @@ tiles:
     options: { action: volume_down }
     sizes: [1x1, 2x1]
 
+# pictures: the file the bench shows for an address a tile asks for (the players' entity_picture below)
+pictures:
+  /local/cover.jpg: preview/cover.jpg
+
 # states: the media players as Home Assistant has them (the attributes the manifest names), and the tempo sensor that
 # plugin.yaml reads (its default entity)
 states:

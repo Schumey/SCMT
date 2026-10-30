@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0 - 2026-10-30
+
+- First stable version: the plugin is no longer marked as beta (`stage: stable`).
+- The bench pictures (`preview.yaml`) name the cover file for `/local/cover.jpg`; `store.png` shows the layout of
+  0.14.3.
+
 ## 0.14.3 - 2026-10-30
 
 - The tempo line stands under the album, no longer above it.
